@@ -1,8 +1,11 @@
 const express = require('express');
+const session = require('express-session');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session'); //access to cookies
 const passport = require('passport'); //tell passport to use cookies
 const keys = require('./config/keys');
+const flash = require('connect-flash');
+const bodyParser = require('body-parser'); //needed to get information from HTML 
 require('./models/user');
 require('./services/passport');
 
@@ -18,8 +21,12 @@ app.use(
   })
 );
 
+app.use(session({ secret: 'session secret key' }))
+
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 require('./routes/authRoutes')(app);
 
