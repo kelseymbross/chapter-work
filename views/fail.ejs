@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title>Chapter work</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<style>
+		body 		{ padding-top:80px; }
+	</style>
+</head>
+<body>
+<div class="container">
+
+<div class="col-sm-6 col-sm-offset-3">
+	<% if (message.length > 0) { %>
+      <div class="alert alert-danger"><%= message %></div>
+  <% } %>
+
+	<h1>Something went terribly wrong... </h1>
+
+    <a type="submit" class="btn btn-primary" href="/login">Take me back to login</a>
+
+</div>
+
+</div>
+</body>
+</html>

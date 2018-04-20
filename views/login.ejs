@@ -1,8 +1,8 @@
 <html>
 <head>
 	<title>Chapter Work</title>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
 	<style>
 		body 		{ padding-top:80px; }
 	</style>
@@ -11,7 +11,9 @@
 <div class="container">
 
 <div class="col-sm-6 col-sm-offset-3">
-
+	<% if (message.length > 0) { %>
+			<div class="alert alert-danger"><%= message %></div>
+	<% } %>
 	<h1>Login</h1>
 
   <form action="/login" method="post">
@@ -24,14 +26,12 @@
         <input type="password" class="form-control" name="password">
     </div>
 
-    <button type="submit" class="btn btn-warning btn-lg">Login</button>
-    <a type="submit" class="btn btn-warning btn-lg" href="/auth/google">Login with google</a>
+    <button type="submit" class="btn btn-primary"><span class="fa fa-check-square-o"></span> Login</button>
+		<a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google+</a>
 </form>
 
 
-
-	<hr>
-
+	<p>Forgot your password? <a href="/request/resetPassword">Here</a></p>
 	<p>Not a user? <a href="/signup">Sign-Up</a></p>
 
 </div>
